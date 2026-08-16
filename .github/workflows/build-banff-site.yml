@@ -1,0 +1,64 @@
+name: Build Banff trip site bundle
+
+on:
+  push:
+    paths:
+      - "banff-2027/**"
+      - ".github/workflows/build-banff-site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build standalone HTML bundle
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path("banff-2027")
+          css = "\n".join((root / f"styles-{i}.css").read_text() for i in range(1, 4))
+          body = "".join((root / f"body-{i}.html").read_text() for i in range(1, 7))
+          app = (root / "app.js").read_text()
+          html = f'''<!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="A researched Banff Springs golf and couples trip proposal with flights, hotels, golf, activities, itinerary, transportation, and an interactive budget.">
+            <meta name="theme-color" content="#103f37">
+            <title>Banff Springs Golf & Couples Escape 2027</title>
+            <style>
+          {css}
+            </style>
+          </head>
+          <body>
+          {body}
+            <script>
+          {app}
+            </script>
+          </body>
+          </html>
+          '''
+          (root / "bundle.html").write_text(html)
+          print(f"Built {root / 'bundle.html'} with {len(html):,} characters")
+          PY
+
+      - name: Commit generated bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add banff-2027/bundle.html
+          if git diff --cached --quiet; then
+            echo "Bundle is already current"
+          else
+            git commit -m "Build standalone Banff trip site"
+            git push
+          fi
