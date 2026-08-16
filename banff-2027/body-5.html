@@ -1,0 +1,115 @@
+eld"><label for="food-daily">Food and drinks per adult per day, USD</label><input id="food-daily" type="number" min="0" step="5" value="125"></div>
+              <div class="field"><label for="activity-allowance">Activities per adult, USD</label><input id="activity-allowance" type="number" min="0" step="25" value="300"></div>
+              <div class="field"><label for="cad-rate">CAD to USD estimate</label><input id="cad-rate" type="number" min="0.5" max="1" step="0.01" value="0.72"></div>
+              <div class="field"><label for="transport-select">Airport transportation</label><select id="transport-select"><option value="airporter" selected>Banff Airporter, return</option><option value="brewster">Brewster estimate, return</option><option value="private">Rental or private transfer</option></select></div>
+              <div class="field" id="private-transfer-field" hidden><label for="private-transfer">Private transport group total, USD</label><input id="private-transfer" type="number" min="0" step="100" value="1500"></div>
+              <label class="checkbox-row"><input id="second-round" type="checkbox"><span>Optional Stewart Creek round for each golfer</span></label>
+              <label class="checkbox-row"><input id="contingency" type="checkbox" checked><span>Add 10% contingency</span></label>
+            </div>
+            <p class="note">Golf assumes the midpoint of the researched 2026 Banff Springs range, CA$299 plus 5% GST. Stewart Creek uses CA$227.50. The calculator is a planning model, not a booking quote.</p>
+          </div>
+
+          <aside class="budget-summary" aria-live="polite">
+            <div class="budget-total"><span>Estimated group total</span><strong id="group-total">$0</strong></div>
+            <div class="budget-kpis">
+              <div class="budget-kpi"><span>Per couple</span><strong id="per-couple">$0</strong></div>
+              <div class="budget-kpi"><span>Per person</span><strong id="per-person">$0</strong></div>
+            </div>
+            <div class="breakdown">
+              <div class="breakdown-row"><span>Hotels</span><strong id="line-hotels">$0</strong></div>
+              <div class="breakdown-row"><span>Flights</span><strong id="line-flights">$0</strong></div>
+              <div class="breakdown-row"><span>Golf</span><strong id="line-golf">$0</strong></div>
+              <div class="breakdown-row"><span>Transportation</span><strong id="line-transport">$0</strong></div>
+              <div class="breakdown-row"><span>Activities</span><strong id="line-activities">$0</strong></div>
+              <div class="breakdown-row"><span>Food and drinks</span><strong id="line-food">$0</strong></div>
+              <div class="breakdown-row"><span>Contingency</span><strong id="line-contingency">$0</strong></div>
+              <div class="breakdown-row total-line"><span>Adults</span><strong id="line-adults">8</strong></div>
+            </div>
+            <p class="assumptions" id="budget-assumptions">Five nights, one room per couple, one Banff Springs round per golfer.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="decisions">
+      <div class="container">
+        <header class="section-header">
+          <div class="eyebrow">Booking sequence</div>
+          <h2>Agree on the few decisions that unlock everything else</h2>
+        </header>
+        <div class="booking-grid">
+          <article class="card">
+            <h3>Booking timeline</h3>
+            <div class="checklist">
+              <div class="check-item"><div class="check-mark">1</div><div><strong>Now</strong><span>Agree on dates, headcount, number of golfers, and hotel tier.</span></div></div>
+              <div class="check-item"><div class="check-mark">2</div><div><strong>Once the group commits</strong><span>Reserve refundable rooms before the best group inventory disappears.</span></div></div>
+              <div class="check-item"><div class="check-mark">3</div><div><strong>When the 2027 tee sheet opens</strong><span>Secure Banff Springs tee times or the Fairmont stay-and-play package.</span></div></div>
+              <div class="check-item"><div class="check-mark">4</div><div><strong>Six to nine months out</strong><span>Monitor ATL to YYC fares and book when the nonstop or best-value option is acceptable.</span></div></div>
+              <div class="check-item"><div class="check-mark">5</div><div><strong>When summer transit reservations open</strong><span>Reserve Lake Louise and Moraine Lake access.</span></div></div>
+              <div class="check-item"><div class="check-mark">6</div><div><strong>Thirty to sixty days out</strong><span>Lock spa, Afternoon Tea, dinners, and final airport transfers.</span></div></div>
+            </div>
+          </article>
+          <aside class="decision-card">
+            <span class="tag dark-tag">Questions for the group</span>
+            <h3>What we still need to decide</h3>
+            <ol>
+              <li>Confirm the trip year is 2027.</li>
+              <li>How many couples and total adults are going?</li>
+              <li>How many golfers want one or two full rounds?</li>
+              <li>Hotel tier: Buffalo value, Peaks or Moose balanced, Rimrock luxury, or Fairmont stay-and-play?</li>
+              <li>Is everyone flying from ATL?</li>
+              <li>Are any children joining?</li>
+              <li>What is the target budget per couple?</li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="share">
+      <div class="container">
+        <header class="section-header">
+          <div class="eyebrow">Share and vote</div>
+          <h2>Send one clean proposal to the group</h2>
+          <p class="lede">The vote builder saves only on the current device. It creates a WhatsApp-ready message, not a shared live poll.</p>
+        </header>
+        <div class="share-shell">
+          <div class="share-actions">
+            <button class="button primary block" type="button" id="share-whatsapp">Share site on WhatsApp</button>
+            <button class="button light block" type="button" id="copy-summary">Copy trip summary</button>
+            <button class="button secondary block" type="button" id="print-site">Print or save PDF</button>
+            <a class="button secondary block" href="#flights">Build flight search</a>
+          </div>
+          <div class="vote-card">
+            <h3>My vote</h3>
+            <div class="vote-grid">
+              <div class="field"><label for="vote-date">Preferred dates</label><select id="vote-date"><option>June 4 to 9, 2027</option><option>May 13 to 20, 2027</option><option>July 22 to 27, 2027</option><option>September 9 to 14, 2027</option></select></div>
+              <div class="field"><label for="vote-hotel">Preferred hotel</label><select id="vote-hotel"><option>Moose Hotel and Suites</option><option>Buffalo Mountain Lodge</option><option>Peaks Hotel and Suites</option><option>Canalta Lodge</option><option>Rimrock Banff</option><option>Fairmont stay-and-play</option></select></div>
+              <div class="field"><label for="vote-track">My plan</label><select id="vote-track"><option>Golf one round</option><option>Golf two rounds</option><option>Spouse or non-golfer activities</option><option>Still deciding</option></select></div>
+            </div>
+            <div class="vote-result" id="vote-result"></div>
+            <div class="action-row" style="margin-top:0.8rem">
+              <button class="button small" type="button" id="copy-vote">Copy vote</button>
+              <button class="button small outline" type="button" id="whatsapp-vote">Send vote on WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-copy">
+        <div class="eyebrow">Banff Springs 2027</div>
+        <h3>Built to make the group decision easier.</h3>
+        <p>Prices were researched August 16, 2026 and are planning snapshots. Verify live availability, taxes, cancellation rules, 2027 golf rates, and final park or transit fees before paying.</p>
+      </div>
+      <div>
+        <strong>Research and booking sources</strong>
+        <div class="sources" style="margin-top:0.8rem">
+          <a target="_blank" rel="noopener noreferrer" href="https://skyscanner.net/g/referrals/v1/flights/home?mediaPartnerId=2850210&amp;utm_term=skyscanner_chatgpt_app_data">Skyscanner</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.booking.com/">Booking.com</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://banff.ca/595/Prepare-for-Mountain-Weather">Town of Banff weather</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.fairmont.com/en/hotels/banff/fairmont-banff-springs/golf.html">Fairmont golf</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.banf
