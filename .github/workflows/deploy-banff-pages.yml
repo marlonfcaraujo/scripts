@@ -1,0 +1,54 @@
+name: Deploy Banff trip site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "banff-2027/bundle.html"
+      - ".github/workflows/deploy-banff-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: banff-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp banff-2027/bundle.html _site/index.html
+          touch _site/.nojekyll
+
+      - name: Try to enable Pages workflow publishing
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "/repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow || \
+          gh api --method PUT "/repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow || true
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
