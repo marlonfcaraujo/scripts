@@ -1,0 +1,214 @@
+    .climate-cell strong { display: block; font-size: 1.18rem; color: var(--pine-900); }
+    .climate-cell.ok { border-color: rgba(55,180,176,0.55); background: var(--glacier-100); }
+    .climate-cell.risk { border-color: rgba(155,59,50,0.2); }
+
+    .grid { display: grid; gap: 1rem; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(16,63,55,0.1);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .card.compact { padding: 1.05rem; }
+    .card.dark-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--white); }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.32rem 0.55rem;
+      border-radius: 999px;
+      background: var(--glacier-100);
+      color: var(--pine-800);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .tag.gold { background: #f5e9ce; color: #6e501d; }
+    .tag.dark-tag { background: rgba(255,255,255,0.13); color: var(--white); }
+    .date-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      position: relative;
+    }
+    .date-card.recommended { border: 2px solid var(--glacier-500); box-shadow: 0 16px 36px rgba(55,180,176,0.16); }
+    .date-card h3 { margin-top: 0.8rem; }
+    .date-card ul { padding-left: 1.15rem; color: var(--muted); flex: 1; }
+    .date-card li + li { margin-top: 0.4rem; }
+    .date-card .button { margin-top: auto; }
+    .watch-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1rem;
+      background: #f3ead7;
+      border-color: rgba(196,155,82,0.3);
+    }
+    .watch-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: #6e501d;
+      font-weight: 900;
+    }
+
+    .flight-panel {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+    .form-card { background: var(--paper); border-radius: var(--radius-lg); padding: 1.6rem; color: var(--charcoal); }
+    .field-grid { display: grid; grid-template-columns: 0.7fr 1fr 1fr; gap: 0.75rem; }
+    .field { display: grid; gap: 0.35rem; }
+    .field label { font-size: 0.78rem; color: var(--muted); font-weight: 800; }
+    .field input, .field select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid rgba(16,63,55,0.18);
+      border-radius: 12px;
+      padding: 0.65rem 0.75rem;
+      background: var(--white);
+      color: var(--charcoal);
+    }
+    .preset-list { display: grid; gap: 0.65rem; }
+    .preset-button {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      width: 100%;
+      padding: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      text-align: left;
+    }
+    .preset-button:hover { background: rgba(255,255,255,0.11); }
+    .preset-button strong { display: block; }
+    .preset-button span { color: rgba(255,255,255,0.65); font-size: 0.78rem; }
+    .preset-button b { color: var(--glacier-300); white-space: nowrap; }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.25rem; }
+    .filter-button, .preset-chip {
+      border: 1px solid rgba(16,63,55,0.17);
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      background: var(--paper);
+      color: var(--pine-900);
+      font-weight: 800;
+    }
+    .filter-button.active, .filter-button:hover, .preset-chip:hover { background: var(--pine-900); color: var(--white); }
+    .hotel-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+    .hotel-card { display: flex; flex-direction: column; min-height: 100%; }
+    .hotel-card[hidden] { display: none; }
+    .hotel-top { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+    .rating { white-space: nowrap; color: var(--pine-800); font-weight: 900; }
+    .hotel-price { margin: 1rem 0; }
+    .hotel-price strong { font-size: 1.7rem; color: var(--pine-900); }
+    .hotel-price span { color: var(--muted); font-size: 0.82rem; display: block; }
+    .hotel-details { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .hotel-details span { font-size: 0.74rem; background: #f1eee7; border-radius: 999px; padding: 0.28rem 0.5rem; }
+    .hotel-card p { color: var(--muted); font-size: 0.9rem; flex: 1; }
+    .hotel-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .comparison {
+      overflow-x: auto;
+      margin-top: 1.5rem;
+      background: var(--paper);
+      border: 1px solid rgba(16,63,55,0.1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 680px; }
+    th, td { text-align: left; padding: 0.9rem 1rem; border-bottom: 1px solid rgba(16,63,55,0.08); }
+    th { color: var(--pine-900); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    td:last-child { font-weight: 900; color: var(--pine-800); }
+
+    .golf-feature {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 550px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--pine-900);
+      color: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+    .golf-image {
+      min-height: 420px;
+      background: linear-gradient(0deg, rgba(8,43,39,0.25), transparent), url('https://m.ahstatic.com/is/image/accorhotels/aja_p_5726-19%3A8by10?dpr=on%2C1.5&fmt=jpg&hei=1178&icc=sRGB&iccEmbed=true&op_usm=1.75%2C0.3%2C2%2C0&qlt=80&resMode=sharp2&wid=943') center/cover;
+    }
+    .golf-copy { padding: clamp(2rem, 5vw, 3.7rem); display: flex; flex-direction: column; justify-content: center; }
+    .golf-copy p { color: rgba(255,255,255,0.72); }
+    .golf-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.6rem; margin: 1.2rem 0; }
+    .golf-stat { border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 0.85rem; }
+    .golf-stat strong { display: block; font-size: 1.1rem; }
+    .golf-stat span { font-size: 0.72rem; color: rgba(255,255,255,0.62); }
+    .action-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .optional-golf { margin-top: 1rem; }
+
+    .track-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 1rem; }
+    .track { border-radius: var(--radius-lg); padding: 1.7rem; }
+    .track.golfers { background: var(--pine-900); color: var(--white); }
+    .track.nongolfers { background: var(--paper); border: 1px solid rgba(16,63,55,0.1); }
+    .activity-list { display: grid; gap: 0.65rem; margin-top: 1rem; }
+    .activity-item {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.75rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .nongolfers .activity-item { background: #f4f1e9; border-color: rgba(16,63,55,0.08); }
+    .activity-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--glacier-100); color: var(--pine-800); font-weight: 900; }
+    .golfers .activity-icon { background: rgba(135,217,211,0.14); color: var(--glacier-300); }
+    .activity-item strong { display: block; }
+    .activity-item small { color: var(--muted); }
+    .golfers .activity-item small { color: rgba(255,255,255,0.62); }
+    .activity-item a { font-weight: 850; font-size: 0.8rem; color: var(--pine-700); }
+    .golfers .activity-item a { color: var(--glacier-300); }
+    .shared-strip {
+      margin-top: 1rem;
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      background: linear-gradient(100deg, var(--glacier-100), #f5ead1);
+    }
+    .shared-strip ul { display: flex; flex-wrap: wrap; gap: 0.55rem; padding: 0; margin: 0; list-style: none; }
+    .shared-strip li { padding: 0.45rem 0.65rem; border-radius: 999px; background: rgba(255,255,255,0.7); font-size: 0.84rem; font-weight: 750; }
+
+    .timeline { position: relative; display: grid; gap: 1rem; }
+    .timeline::before { content: ""; position: absolute; top: 1rem; bottom: 1rem; left: 29px; width: 2px; background: var(--glacier-300); }
+    .day {
+      position: relative;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1rem;
+    }
+    .day-number {
+      position: relative;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--pine-900);
+      color: var(--white);
+      font-weight: 900;
+      border: 5px solid var(--cream);
+    }
+    .day-card { background: var(--paper); border: 1px solid rgba(16,63,55,0.1); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow-sm); }
+    .day-meta { color: var(--pine-700); font-weight: 850; font-size: 0.82rem; margin-bottom: 0.2rem; }
